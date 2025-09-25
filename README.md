@@ -46,30 +46,6 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 
 ---
 
-## 📊 Results Highlights
-
-### Video Generation Quality
-| Method | FID ↓ | FVD ↓ |
-|--------|-------|-------|
-| Vista | 6.90 | 89.40 |
-| DrivingWorld | 7.40 | 90.90 |
-| **OmniNWM** | **5.45** | **23.63** |
-
-### Occupancy Prediction
-| Method | Input | mIoU ↑ |
-|--------|-------|--------|
-| OccGen | C | 14.5 |
-| LMSCNet | L | 11.5 |
-| **OmniNWM** | C | **19.8** |
-
-### Camera Control Accuracy
-| Method | Rotation Error (×10⁻²) ↓ | Translation Error (×10⁻²) ↓ |
-|--------|--------------------------|----------------------------|
-| UniScene | 1.98 | 12.74 |
-| **OmniNWM** | **1.42** | **5.14** |
-
----
-
 ## 🎥 Demo Videos
 
 ### Precise Panoramic Control
