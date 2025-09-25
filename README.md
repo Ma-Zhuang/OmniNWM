@@ -17,7 +17,7 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 - **🏆 Reward**: Integrated occupancy-based dense rewards for driving compliance and safety
 
 ![Teaser](assets/teaser.png)  
-*OmniNWM enables comprehensive multi-modal generation and precise control for autonomous driving simulation.*
+*OmniNWM enables comprehensive multi-modal generation, precise control and unbounded closed-loop navigation for autonomous driving simulation.*
 
 ---
 
@@ -38,11 +38,6 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 ![Architecture](assets/architecture.png)  
 *Overall framework of OmniNWM supporting multi-modal generation, precise control, and closed-loop evaluation.*
 
-### Core Components:
-- **Panoramic Diffusion Transformer (PDiT)**: Generates aligned RGB, semantic, and depth videos
-- **3D Occupancy Module**: Converts 2D outputs into 3D semantic occupancy volumes
-- **Plücker Ray-map Encoder**: Provides scale- and pose-invariant camera control
-- **OmniNWM-VLA Planner**: Semantic-geometric reasoning agent for trajectory planning
 
 ---
 
@@ -64,16 +59,6 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 
 
 
-## 📈 Performance
-
-### Quantitative Results
-![Results Table](assets/results_table.png)
-
-### Qualitative Comparisons
-![Qualitative](assets/qualitative_comparison.png)  
-*OmniNWM generates more structurally consistent and detailed scenes compared to previous methods.*
-
----
 
 ## 📚 Citation
 
