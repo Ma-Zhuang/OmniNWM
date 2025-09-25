@@ -36,10 +36,10 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 
 ![Architecture](assets/architecture.png)  
 
-
 ---
 
-
+### 💥 News
+- [2025/09]: Demo is released on the [Project Page](https://github.com/Arlo0o/OmniNWM).
 
 
 ## 📚 Citation
