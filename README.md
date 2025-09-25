@@ -1,7 +1,7 @@
 # OmniNWM: Omniscient Navigation World Models for Autonomous Driving
 
 [![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://github.com/Arlo0o/OmniNWM)
-[![Project Page](https://img.shields.io/badge/Project-Page-green)]([https://omninwm.github.io](https://github.com/Arlo0o/OmniNWM))
+[![Project Page](https://img.shields.io/badge/Project-Page-green)](https://github.com/Arlo0o/OmniNWM)
 [![License](https://img.shields.io/badge/License-Apache%202.0-orange)](LICENSE)
 
 > **OmniNWM** is a unified panoramic navigation world model that advances autonomous driving simulation by jointly generating multi-modal states (RGB, semantics, depth, 3D occupancy), enabling precise action control via normalized Plücker ray-maps, and facilitating closed-loop evaluation through occupancy-based dense rewards.
