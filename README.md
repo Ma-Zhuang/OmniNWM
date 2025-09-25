@@ -23,7 +23,7 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 ## ✨ Key Features
 
 | Feature | Description |
-|---------|-------------|
+|-----------|-------------|
 |  **Multi-modal Generation** | Jointly generates RGB, semantic, depth, and 3D occupancy in panoramic views |
 | **Precise Camera Control** | Uses normalized Plücker ray-maps for pixel-level trajectory interpretation |
 | **Long-term Stability** | Flexible forcing strategy enables auto-regressive generation beyond training sequences |
