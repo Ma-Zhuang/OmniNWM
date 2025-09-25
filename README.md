@@ -1,12 +1,3 @@
-# OmniNWM: Comprehensive Navigation World Model with Panoramic Camera Control for Autonomous Driving
+# OmniNWM: Omniscient Navigation World Models for Autonomous Driving
 
 ## Coming Soon
-
-
-## 📚 Citation
-
-```bibtex
-@article{,
- 
-}
-```
