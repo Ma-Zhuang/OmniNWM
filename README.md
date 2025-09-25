@@ -44,7 +44,6 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 
 ## 📚 Citation
 
-If you find our work useful, please cite:
 
 ```bibtex
 @article{li2025omninwm,
@@ -64,7 +63,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ---
 
-## 🙏 Acknowledgments
+## ❤️ Acknowledgments
 
 - Built upon great open-source projects like [OpenSora](https://github.com/hpcaitech/Open-Sora) and [Qwen-VL](https://github.com/QwenLM/Qwen-VL)
 
