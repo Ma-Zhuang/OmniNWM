@@ -46,11 +46,7 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 
 
 ```bibtex
-@article{li2025omninwm,
-  title={OmniNWM: Omniscient Navigation World Models for Autonomous Driving},
-  author={Li, Bohan and Ma, Zhuang and Liang, Zhujin and Peng, Baorui and Liu, Zhenqiang and Du, Dalong and Ma, Chao and Jin, Yueming and Zhao, Hao and Zeng, Wenjun and Jin, Xin},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2025}
+@article{
 }
 ```
 
