@@ -1,6 +1,6 @@
 # OmniNWM: Omniscient Navigation World Models for Autonomous Driving
 
-[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://github.com/Arlo0o/OmniNWM)
+%[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://github.com/Arlo0o/OmniNWM)
 [![Project Page](https://img.shields.io/badge/Project-Page-green)](https://github.com/Arlo0o/OmniNWM)
 [![License](https://img.shields.io/badge/License-Apache%202.0-orange)](LICENSE)
 
@@ -74,4 +74,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ---
 
-*Note: This repository is under active development. Code and models will be released soon.*
+*Note: This repository is under active development. Paper and Code will be released soon.*
