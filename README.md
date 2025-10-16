@@ -34,7 +34,7 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 
 ## 🏗️ Architecture
 
-![Architecture](assets/architecture.png)  
+![Architecture](assets/overall.png)  
 
 ---
 
