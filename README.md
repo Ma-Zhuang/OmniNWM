@@ -1,6 +1,6 @@
 # OmniNWM: Omni Driving Navigation World Models
 
-<!-- [![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://github.com/Arlo0o/OmniNWM) -->
+[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://github.com/Arlo0o/OmniNWM)
 [![Project Page](https://img.shields.io/badge/Project-Page-green)](https://arlo0o.github.io/OmniNWM/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-orange)](LICENSE)
 
@@ -42,17 +42,24 @@ OmniNWM addresses three core dimensions of autonomous driving world models:
 - [2025/09]: Demo is released on the [Project Page](https://github.com/Arlo0o/OmniNWM).
 
 
-<!-- ## 📚 Citation
+## 📚 Citation
 
 
 ```bibtex
-@article{
+@misc{li2025omninwmomniscientdrivingnavigation,
+      title={OmniNWM: Omniscient Driving Navigation World Models}, 
+      author={Bohan Li and Zhuang Ma and Dalong Du and Baorui Peng and Zhujin Liang and Zhenqiang Liu and Chao Ma and Yueming Jin and Hao Zhao and Wenjun Zeng and Xin Jin},
+      year={2025},
+      eprint={2510.18313},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2510.18313}, 
 }
 ```
 
 
 ---
--->
+
 
 ## 📄 License
 
