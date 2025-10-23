@@ -82,6 +82,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 </div>
 
----
-
-*Note: This repository is under active development. Paper and Code will be released soon.*
+ 
