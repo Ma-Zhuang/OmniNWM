@@ -1,4 +1,4 @@
-# OmniNWM: Omni Driving Navigation World Models
+# OmniNWM: Omniscient Driving Navigation World Models
 
 [![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/abs/2510.18313)
 [![Project Page](https://img.shields.io/badge/Project-Page-green)](https://arlo0o.github.io/OmniNWM/)
