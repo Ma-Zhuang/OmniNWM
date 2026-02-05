@@ -1,0 +1,22 @@
+torch==2.4.0
+torchvision==0.19.0
+colossalai>=0.5.0
+mmengine>=0.10.7
+av==13.1.0 # for video loading
+liger-kernel==0.5.2
+pandas>=2.2.1
+pandarallel>=1.6.5
+openai>=1.66.3
+wandb>=0.19.11
+tensorboard>=2.19.0
+pre-commit>=3.5.0
+omegaconf>=2.3.0
+qwen-vl-utils[decord]==0.0.8
+pyarrow
+scipy
+# openmim # for mim install "mmcv>=2.0.0rc1"
+mmcv==2.2.0
+pyquaternion
+flash_attn
+pycolmap==3.13.0
+transformers==4.52.3 # vim /opt/conda/lib/python3.11/site-packages/transformers/modeling_utils.py change "if self._tp_plan is not None and is_torch_greater_or_equal("2.3"):" to "if self._tp_plan is not None and is_torch_greater_or_equal("2.5"):"
