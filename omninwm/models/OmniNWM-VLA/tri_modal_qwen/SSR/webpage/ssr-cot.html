@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SSR-CoT</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="ssr-cot.html" class="logo">SSR-CoT</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">SSR</a></li>
+							<li class="active"><a href="ssr-cot.html">SSR-CoT</a></li>
+							<li><a href="ssrbench.html">SSRBench</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://arxiv.org/abs/2505.12448" class="icon brands" target="_blank"><i class="ai ai-arxiv"><span> arXiv</span></i></a></li>
+							<li><a href="https://github.com/yliu-cs/SSR" class="icon brands" target="_blank"><i class="fab fa-github"><span> Code</span></i></a></li>
+							<li><a href="https://huggingface.co/collections/yliu-cs/ssr-682d44496b64e4edd94092bb" class="icon brands" target="_blank"><i class="far fa-smile-beam"><span> Model</span></i></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>SSR-CoT Dataset</h1>
+									<p>A million-scale visual-language reasoning dataset enriched with intermediate spatial reasoning annotations</p>
+								</header>
+								<div class="image main"><img src="images/data_mix.jpg" alt="" /></div>
+								<p>We curate a new dataset SSR-CoT from existing VQA datasets, resulting in over a total of 1 million image-depth-question-rationale-answer pairs. There are four dataset sources we integrated: LLaVA-CoT, Visual-CoT, VoCoT, and SpatialQA.</p>
+								<div class="image"><img src="images/data_pipeline.jpg" width="80%" alt="" style="margin: 0 auto;" /></div>
+								<p>To generate visual-language reasoning data enriched with spatial information, we follow a multi-step process.</p>
+								<div class="image"><img src="images/data_quality.jpg" width="40%" alt="" style="margin: 0 auto;"/></div>
+								<p>To evaluate the quality of SSR-CoT, we conducted an assessment based on the performance of the Qwen2.5-VL-7B-Instruct on the VQA task. This evaluation was carried out on a randomly selected subset comprising approximately 1% of the full dataset, corresponding roughly to 10k samples. Performance metrics include accuracy as well as a quantitative score ranging from 0 to 5, both are produced using the LLM-Assistant powered by the Qwen2.5-14B-Instruct-1M.</p>
+								<div class="image main"><img src="images/data_sample.jpg" alt="" /></div>
+								<p>Each data instance within SSR-CoT comprises the original image, an associated question-answer pair, the corresponding estimated depth information, and a rationale. The rationale incorporates fundamental reasoning steps used in question-answering tasks and provides detailed spatial reasoning to support accurate answer generation.</p><br />
+								<ul class="actions special">
+									<li><a href="https://huggingface.co/datasets/yliu-cs/SSR-CoT" class="button large" target="_blank">Download</a></li>
+								</ul>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h4>BibTex</h4>
+							<pre style="white-space: pre-wrap; word-wrap: break-word; overflow-x: auto;"><code>@article{journals/corr/abs-2505-12448,
+  author       = {Yang Liu and Ming Ma and Xiaomin Yu and Pengxiang Ding and Han Zhao and Mingyang Sun and Siteng Huang and Donglin Wang},
+  title        = {SSR: Enhancing Depth Perception in Vision-Language Models via Rationale-Guided Spatial Reasoning},
+  journal      = {CoRR},
+  volume       = {abs/2505.12448},
+  year         = {2025},
+}</code></pre>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<span id="busuanzi_container_site_pv">Total visit:<span id="busuanzi_value_site_pv"></span></span>
+					</div>
+			</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SSR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>SSR</h1>
+						<p>Enhancing Depth Perception in Vision-Language Models via Rationale-Guided Spatial Reasoning<br /></p>
+						<p><a href="https://yliu-cs.github.io" target="_blank">Yang Liu<sup>1,†</sup></a>, Ming Ma<sup>3,†</sup>, Xiaomin Yu<sup>4,†</sup>, <a href="https://dingpx.github.io" target="_blank">Pengxiang Ding<sup>1,2,§</sup></a>, <a href="https://h-zhao1997.github.io" target="_blank">Han Zhao<sup>1,2</sup></a>, <br />
+						Mingyang Sun<sup>1,2,5</sup>, <a href="https://kyonhuang.top" target="_blank">Siteng Huang<sup>2</sup></a>, <a href="https://milab.westlake.edu.cn" target="_blank">Donglin Wang<sup>1,*</sup></a></p>
+						<p style="font-size: 0.8rem;"><sup>1</sup>Westlake University, <sup>2</sup>Zhejiang University, <sup>3</sup>Harbin Institute of Technology, <sup>4</sup>The Hong Kong University of Science and Technology (Guangzhou), <sup>5</sup>Shanghai Innovation Institute<br />
+						<sup>†</sup>Equal contribution. <sup>§</sup>Project lead. <sup>*</sup>Corresponding author.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">SSR</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">SSR</a></li>
+							<li><a href="ssr-cot.html">SSR-CoT</a></li>
+							<li><a href="ssrbench.html">SSRBench</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://arxiv.org/abs/2505.12448" class="icon brands" target="_blank"><i class="ai ai-arxiv"><span> arXiv</span></i></a></li>
+							<li><a href="https://github.com/yliu-cs/SSR" class="icon brands" target="_blank"><i class="fab fa-github"><span> Code</span></i></a></li>
+							<li><a href="https://huggingface.co/collections/yliu-cs/ssr-682d44496b64e4edd94092bb" class="icon brands" target="_blank"><i class="far fa-smile-beam"><span> Model</span></i></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<h3>Abstract</h3>
+									<p style="text-align: left">Despite impressive advancements in Visual-Language Models (VLMs) for multi-modal tasks, their reliance on RGB inputs limits precise spatial understanding. Existing methods for integrating spatial cues, such as point clouds or depth, either require specialized sensors or fail to effectively exploit depth information for higher-order reasoning. To this end, we propose a novel Spatial Sense and Reasoning method, dubbed SSR, a novel framework that transforms raw depth data into structured, interpretable textual rationales. These textual rationales serve as meaningful intermediate representations to significantly enhance spatial reasoning capabilities. Additionally, we leverage knowledge distillation to compress the generated rationales into compact latent embeddings, which facilitate resource-efficient and plug-and-play integration into existing VLMs without retraining. To enable comprehensive evaluation, we introduce a new dataset named SSR-CoT, a million-scale visual-language reasoning dataset enriched with intermediate spatial reasoning annotations, and present SSRBench, a comprehensive multi-task benchmark. Extensive experiments on multiple benchmarks demonstrate SSR substantially improves depth utilization and enhances spatial reasoning, thereby advancing VLMs toward more human-like multi-modal understanding.</p>
+								</header>
+								<div class="image main"><img src="images/teaser.jpg" alt="" /></div>
+								<ul style="text-align: left">
+									<li>We propose an efficient VLM, dubbed SSR, capable of simultaneously performing depth perception and spatial reasoning, and generating answers based on implicit reasoning rationales.</li>
+									<li>We introduce SSR-CoT, a million-scale visual-language reasoning dataset enriched with intermediate spatial reasoning annotations, and present SSRBench, a comprehensive mliti-task benchmark.</li>
+									<li>Extensive experiments and solid analysis across various benchmarks demonstrate our SSR can efficiently and dramatically enhance the spatial understanding of existing VLMs.</ul>
+								</ul>
+							</article>
+
+							<article class="post featured">
+								<header class="major">
+									<h3>SSR</h3>
+									<p style="text-align: left"></p>
+								</header>
+								<div class="image main"><img src="images/architecture.png" alt="" /></div>
+								<p>Schematic of SSR framework. (a) Overall pipeline. (b) full architecture of SSR, comprising the MIDI module followed by the VLM. (c) Two training stages of the SSR. In the stage 1, the LLM provides alignment supervision for the MIDI module, whereas the stage 2 is optional.</p>
+							</article>
+
+							<article class="post featured">
+								<header class="major">
+									<h3>SSR-CoT</h3>
+									<p style="text-align: left"></p>
+								</header>
+								<div class="image main"><img src="images/data_sample.jpg" alt="" /></div><br />
+								<ul class="actions special">
+									<li><a href="ssr-cot.html" class="button large">Dataset</a></li>
+								</ul>
+							</article>
+
+							<article class="post featured">
+								<header class="major">
+									<h3>SSRBench</h3>
+									<p style="text-align: left"></p>
+								</header>
+								<div class="image main"><img src="images/bench_sample.jpg" alt="" /></div><br />
+								<ul class="actions special">
+									<li><a href="ssrbench.html" class="button large">Benchmark</a></li>
+								</ul>
+							</article>
+
+							<article class="post featured">
+								<header class="major">
+									<h3>Experiementation</h3>
+									<p style="text-align: left"></p>
+								</header>
+								<div class="image main"><img src="images/main.jpg" alt="" /></a>
+								<p>SSR in 3 billion parameters can achieve comparable or even higher results than large-scale baseline models, including closed-source and backbone models. Our larger variant, comprising 7 billion parameters, yields the best performance on most tasks across the two benchmarks.</p>
+								<div class="image main"><img src="images/improv.jpg" alt="" /></a>
+								<p>The improved performance of SSR compared to the backbone model across the four benchmarks at varying model scales.</p>
+								<div class="image main"><img src="images/aba.jpg" alt="" /></a>
+								<p>We conducted experiments to evaluate the SSR model without the second training phase. These experiments illustrate the performance of the MIDI module when integrated in a plug-and-play manner, leading to improved spatial understanding.</p>
+								<div class="image main"><img src="images/case_study.jpg" alt="" /></a>
+								<p>In the left example, the images depict only people and bananas. Consequently, the model must abandon conventional assumptions and carefully reason about the spatial relations explicitly present in the image to answer accurately. In the right example, complex relationships among numerous objects are depicted, and relevant features for answering the posed question are not immediately obvious. In this case, the model must thoroughly comprehend the correspondence between each object and the given question, as well as understand intricate spatial relations among these objects, to produce a correct response. These examples clearly demonstrate that our SSR effectively enhances the spatial awareness and reasoning capabilities of vision-language models, thereby significantly improving their ability to understand complex spatial relationships.</p>
+							</article>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h4>BibTex</h4>
+							<pre style="white-space: pre-wrap; word-wrap: break-word; overflow-x: auto;"><code>@article{journals/corr/abs-2505-12448,
+  author       = {Yang Liu and Ming Ma and Xiaomin Yu and Pengxiang Ding and Han Zhao and Mingyang Sun and Siteng Huang and Donglin Wang},
+  title        = {SSR: Enhancing Depth Perception in Vision-Language Models via Rationale-Guided Spatial Reasoning},
+  journal      = {CoRR},
+  volume       = {abs/2505.12448},
+  year         = {2025},
+}</code></pre>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<span id="busuanzi_container_site_pv">Total visit:<span id="busuanzi_value_site_pv"></span></span>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+	</body>
+</html>

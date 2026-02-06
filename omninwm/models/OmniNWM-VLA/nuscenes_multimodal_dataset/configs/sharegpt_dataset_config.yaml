@@ -1,0 +1,176 @@
+# nuScenes多模态数据集配置文件 - ShareGPT格式扩展
+
+# 数据集基本配置
+dataset:
+  nuscenes_dataroot: "/code/VLA/datasets/nuscenes"  # nuScenes数据路径
+  nuscenes_version: "v1.0-trainval"           # 使用mini版本进行测试
+  output_directory: "/code/VLA/datasets/sharegpt_data"  # 输出目录
+  enable_can_bus: true                    # 启用CAN总线数据读取（需要can_bus扩展）
+  
+# 轨迹预测配置
+trajectory:
+  prediction_horizon: 3.0   # 预测时域（秒）
+  sampling_rate: 12.0       # 采样频率（Hz），高频轨迹采样
+  num_waypoints: 36         # 预测的路径点数量 (3.0s * 12Hz = 36)
+  max_trajectory_distance: 100.0  # 最大轨迹距离（米）
+  
+  # 历史数据配置
+  history_horizon: 1.0      # 历史轨迹时域（秒）
+  num_history_points: 12    # 历史路径点数量 (1.0s * 12Hz = 12)
+  
+  # 插值和平滑配置
+  interpolation_mode: true        # 是否启用插值模式（从nuScenes 2Hz插值到目标频率）
+  enable_trajectory_smoothing: true  # 是否启用轨迹平滑
+  smoothing_window_size: 5        # 平滑窗口大小
+  max_acceleration: 5.0           # 最大允许加速度（m/s²）
+  max_angular_velocity: 2.0       # 最大允许角速度（rad/s）
+
+# 摄像头配置
+cameras:
+  channels:
+    - "CAM_FRONT"
+    - "CAM_FRONT_LEFT"
+    - "CAM_FRONT_RIGHT"
+    - "CAM_BACK"
+    - "CAM_BACK_LEFT"
+    - "CAM_BACK_RIGHT"
+  
+  # 图像预处理配置
+  image_size: [224, 224]     # 目标图像尺寸
+  normalize_rgb: true        # 是否归一化RGB图像
+  
+# 深度处理配置
+depth:
+  model_name: "DPT"          # 深度估计模型 ["DPT", "ZoeDepth", "MiDaS"]
+  model_path: "/code/VLA/models/depth_models/DPT"  # DPT模型文件夹路径
+  use_local_weights: true    # 使用本地模型权重
+  device: "auto"             # 计算设备 ["auto", "cuda", "cpu"]
+  save_format: "png16"       # 保存格式 ["png16", "png8", "npy"]
+  max_depth: 100.0           # 最大深度值（米）
+  
+# 语义分割配置  
+semantic:
+  model_name: "SegFormer"    # 语义分割模型 ["SegFormer", "Mask2Former"]
+  model_path: "/code/VLA/models/segmentation_models/segformer-b5-finetuned-ade-640-640"  # 语义分割模型路径
+  use_local_weights: true    # 使用本地模型权重
+  device: "auto"             # 计算设备
+  save_colored: false        # 是否保存彩色版本
+  
+# 处理配置
+processing:
+  num_workers: 8             # 并行工作进程数
+  batch_size: 4              # 批处理大小
+  enable_validation: true    # 启用数据验证
+  save_statistics: true      # 保存统计信息
+  
+# ShareGPT对话格式配置
+conversation:
+  format_type: "sharegpt"    # 输出格式类型 ["standard", "sharegpt"]
+  
+  # 对话模板配置
+  template_type: "multimodal_trajectory"  # 对话模板 ["multimodal_trajectory", "detailed_analysis", "safety_focused"]
+  add_template_variations: true           # 启用模板变化（增加数据多样性）
+  
+  # 历史状态配置
+  include_historical_states: true         # 在prompt中包含历史车辆状态
+  historical_state_format: "detailed"     # 历史状态格式 ["basic", "detailed"]
+  
+  # 响应格式配置
+  response_format: "planning_tags"        # 响应格式 ["planning_tags", "plain_text"]
+  include_scene_analysis: false           # 是否包含场景分析（某些模板需要）
+  
+# CAN总线数据配置
+can_bus:
+  enable: true                           # 启用CAN总线数据
+  message_types:                         # 需要读取的消息类型
+    - "pose"
+    - "steer_angle_feedback" 
+    - "vehicle_monitor"
+  time_tolerance: 1.0                    # 时间容差（秒）
+  fallback_to_estimation: true           # 如果CAN数据不可用，是否回退到估算
+
+# 提示文本配置（保留向后兼容性）
+prompts:
+  # ShareGPT对话模板
+  conversation_templates:
+    multimodal_trajectory: |
+      You are an autonomous driving agent. You have access to multi-modal sensory data from a vehicle's 6-camera system providing 360° coverage: {camera_views}. Additionally, you have corresponding depth maps and semantic segmentation maps for each camera view. Your task is to predict the vehicle's detailed future trajectory over the next 3 seconds at 12Hz sampling rate (36 waypoints total).
+
+      Provided is the ego vehicle status recorded over the last 1.0 seconds (at 0.083-second intervals, 12Hz). This includes the x, y coordinates and heading angle of the ego vehicle in the ego-coordinate system. Positive x means forward direction, positive y means leftward direction, and heading angle is in radians. The data is presented in the format [x, y, heading]:
+
+      {historical_states}
+
+      Analyze the multi-modal sensor data (RGB images, depth maps, and semantic segmentation) from all 6 camera views to understand the surrounding environment, road structure, traffic conditions, and potential obstacles. Based on this comprehensive analysis and the vehicle's current motion pattern, predict the future trajectory.
+    
+    detailed_analysis: |
+      You are an expert autonomous vehicle path planner with access to comprehensive multi-modal sensory information. You can see the driving environment through a 6-camera system: {camera_views}, providing complete 360° coverage around the vehicle. For each camera view, you also have depth perception data and semantic understanding of the scene elements.
+
+      Historical vehicle dynamics over the past 1.0 seconds (12Hz sampling):
+      {historical_states}
+
+      Your mission: Analyze the complete sensory input to understand the current driving scenario, including road geometry, traffic participants, potential hazards, and environmental conditions. Then, predict a safe and efficient trajectory for the next 3 seconds, outputted as 36 precise waypoints at 12Hz frequency. Each waypoint should contain ego-centric coordinates [x, y, heading] where x is forward, y is leftward, and heading is in radians.
+    
+    safety_focused: |
+      You are a safety-critical autonomous driving system. Your primary responsibility is to ensure safe navigation while maintaining efficient progress. You have access to rich sensory data: {camera_views} providing 360° visual awareness, supplemented by depth estimation and semantic scene understanding.
+
+      Current vehicle state history (1.0s, 12Hz sampling):
+      {historical_states}
+
+      Analyze all available multi-modal data to:
+      1. Identify potential safety hazards and traffic participants
+      2. Understand road structure and driving constraints
+      3. Plan a collision-free trajectory respecting traffic rules
+      4. Output 36 trajectory waypoints for the next 3 seconds (12Hz)
+
+      Prioritize safety over speed. Each waypoint format: [x, y, heading] in ego coordinates.
+
+  # 传统模板（向后兼容）
+  template_type: "chain_of_thought"  # 提示模板类型 ["basic", "chain_of_thought", "role_playing"]
+  
+  # 基础模板
+  basic: "Based on the RGB, depth, and semantic images from 6 cameras, predict the vehicle's future trajectory for the next 3 seconds."
+  
+  # 思维链模板
+  chain_of_thought: |
+    You are a professional autonomous driving AI. First, analyze the provided RGB, depth, and semantic segmentation images from the vehicle's six cameras. 
+    Describe the current driving scene, including road layout, traffic conditions, and any potential hazards. 
+    Then, based on your analysis, output your prediction for the vehicle's future trajectory over the next 3 seconds as a sequence of 36 (x, y, heading) waypoints in the ego-vehicle coordinate system.
+  
+  # 角色扮演模板
+  role_playing: |
+    You are an expert autonomous vehicle path planner. You have access to comprehensive sensory information including RGB images, depth maps, and semantic segmentation from all six cameras around the vehicle.
+    
+    Your task is to:
+    1. Analyze the multi-modal sensor data to understand the current driving environment
+    2. Identify key elements like road boundaries, other vehicles, pedestrians, and traffic signs
+    3. Plan a safe and efficient trajectory for the next 3 seconds
+    4. Output the trajectory as 36 waypoints with (x, y, heading) coordinates relative to the current vehicle position
+
+# 数据质量控制
+quality_control:
+  min_trajectory_length: 36          # 最小轨迹长度
+  max_missing_samples: 0             # 允许的最大缺失样本数
+  validate_image_integrity: true     # 验证图像完整性
+  check_coordinate_bounds: true      # 检查坐标边界
+  min_historical_samples: 2          # 最小历史样本数
+  validate_conversation_format: true # 验证对话格式
+  
+# 输出格式配置
+output:
+  json_indent: 2                     # JSON缩进
+  include_metadata: true             # 包含元数据
+  save_manifest: true                # 保存数据清单
+  separate_by_format: true           # 按格式分离输出（standard vs sharegpt）
+  
+  # ShareGPT特定输出配置
+  sharegpt:
+    filename_pattern: "conversation_{sample_id}.json"  # 文件名模式
+    validate_format: true                              # 验证ShareGPT格式
+    include_debug_metadata: false                      # 包含调试元数据
+    
+# 日志配置
+logging:
+  level: "INFO"                      # 日志级别 ["DEBUG", "INFO", "WARNING", "ERROR"]
+  save_to_file: true                 # 保存到文件
+  log_file: "dataset_builder.log"    # 日志文件名
+  conversation_log_file: "conversation_generation.log"  # 对话生成日志

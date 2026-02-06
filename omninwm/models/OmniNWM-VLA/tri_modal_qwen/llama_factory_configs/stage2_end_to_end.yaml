@@ -1,0 +1,73 @@
+# Model configuration
+model_name_or_path: /code/VLA/models/Qwen2.5-VL-7B-Instruct  # 改用7B模型
+template: qwen2_vl
+trust_remote_code: true
+
+# Method configuration
+stage: sft
+do_train: true
+do_eval: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.1
+lora_target: q_proj,v_proj,o_proj,gate_proj,up_proj,down_proj
+
+# Dataset configuration
+dataset: tri_modal_fused_train
+eval_dataset: tri_modal_fused_val
+dataset_dir: /code/VLA/tri_modal_qwen/llama_factory_configs
+cutoff_len: 2048
+preprocessing_num_workers: 4
+dataloader_num_workers: 4
+
+# Output configuration
+output_dir: /code/VLA/outputs/stage2_llama_factory
+logging_steps: 10
+save_steps: 250
+eval_steps: 250
+save_total_limit: 3
+plot_loss: true
+overwrite_output_dir: false
+save_only_model: false
+report_to: tensorboard
+logging_first_step: true
+log_level: info
+logging_nan_inf_filter: false
+
+# Training configuration
+per_device_train_batch_size: 2  # 7B模型需要更小batch
+per_device_eval_batch_size: 4
+gradient_accumulation_steps: 8  # 增加累积步数以保持有效batch size
+learning_rate: 2.0e-5
+num_train_epochs: 8
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+weight_decay: 0.01
+max_grad_norm: 1.0
+bf16: true
+fp16: false
+optim: adamw_torch
+ddp_find_unused_parameters: false
+ddp_timeout: 180000000
+seed: 42
+run_name: tri_modal_qwen_stage2_end_to_end
+
+# Evaluation configuration  
+eval_strategy: steps
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false
+save_safetensors: true
+
+# DeepSpeed configuration
+deepspeed: /code/VLA/tri_modal_qwen/llama_factory_configs/ds_z2_config.json
+
+# TMI (Tri-Modal Interpreter) configuration
+use_tmi_features: true
+custom_collator_path: /code/VLA/tri_modal_qwen/llama_factory_configs/custom_trainer.py
+tmi_hidden_size: 3584  # MIDI三模态输出维度 (Qwen2.5-7B hidden_size)
+tmi_feature_dir: /code/VLA/datasets/fused_features/train/features
+eval_tmi_feature_dir: /code/VLA/datasets/fused_features/val/features
+compute_trajectory_metrics: true
+eval_trajectory_samples: 100

@@ -38,10 +38,10 @@
 ---
 
 ## 💥 News
-
-- **[2026/02]** 🚀 Training/Inference code and pre-trained weights released!
-- **[2025/10]** 📝 Paper available on [arXiv](https://arxiv.org/abs/2510.18313).
-- **[2025/09]** 🌐 Project demo live on the [Project Page](https://arlo0o.github.io/OmniNWM/).
+- **[2026/02]**  Implementation details of [OmniNWM-VLA](omninwm/models/OmniNWM-VLA) released!
+- **[2026/02]**  Training/Inference code and pre-trained weights released!
+- **[2025/10]**  Paper available on [arXiv](https://arxiv.org/abs/2510.18313).
+- **[2025/09]**  Project demo live on the [Project Page](https://arlo0o.github.io/OmniNWM/).
 
 ---
 
@@ -145,8 +145,12 @@ OmniNWM
 ├── tools
 ```
 
+### 4.  OmniNWM-VLA
+Check [OmniNWM-VLA](omninwm/models/OmniNWM-VLA) for more implementation details, including :
 
----
+-  Integrated SSR-MIDI for tri-modal fusion 
+-  ShareGPT format dataset generation pipeline 
+-  codebase setup with nuScenes support
 
 ## 🚀 Usage
 
