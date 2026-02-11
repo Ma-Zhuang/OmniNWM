@@ -9,6 +9,10 @@
 [![Huggingface](https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Models-yellow?style=for-the-badge)](https://huggingface.co/Arlolo0/OmniNWM/tree/main)
 <!-- [![License](https://img.shields.io/badge/License-Apache%202.0-orange?style=for-the-badge)](LICENSE) -->
 
+[Bohan Li](https://arlo0o.github.io/libohan.github.io/), [Zhuang Ma](https://github.com/Ma-Zhuang), [Dalong Du](), [Baorui Peng](), [Zhujin Liang](), [Zhenqiang Liu](), [Chao Ma](https://scholar.google.com/citations?hl=zh-CN&user=syoPhv8AAAAJ), [Yueming Jin](https://scholar.google.com/citations?hl=zh-CN&user=s_kbB4oAAAAJ), [Hao Zhao](https://scholar.google.com/citations?hl=zh-CN&user=ygQznUQAAAAJ), [Wenjun Zeng](https://scholar.google.com/citations?user=_cUfvYQAAAAJ&hl=zh-CN), [Xin Jin](https://scholar.google.com/citations?hl=zh-CN&user=byaSC-kAAAAJ)
+       
+
+
 > **OmniNWM** is a unified panoramic navigation world model that advances autonomous driving simulation by jointly generating multi-modal states (RGB, semantics, depth, 3D occupancy), enabling precise action control via normalized Plücker ray-maps, and facilitating closed-loop evaluation through occupancy-based dense rewards.
 
 ---
