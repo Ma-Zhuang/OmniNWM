@@ -9,7 +9,7 @@
 ## 📢 News
 
 <!-- - **[2026.2]** 🎉 OmniNWM v1.0 released with full training pipeline -->
-- **[2026.2]** 🚀 Integrated SSR-MIDI for tri-modal fusion with Mamba-SSM 2.2.4
+- **[2026.2]** 🚀 Integrated Tri-MMI for tri-modal fusion with Mamba-SSM 2.2.4
 - **[2026.2]** 📊 ShareGPT format dataset generation pipeline completed
 - **[2026.1]** 🔧 Initial codebase setup with nuScenes support
 
@@ -20,7 +20,7 @@
 - 🎯 **Tri-Modal Fusion**: Seamlessly integrates RGB, depth, and semantic information
 - 🚗 **360° Perception**: Full panoramic understanding with 6-camera system
 - ⚡ **12Hz High-Frequency**: 36 trajectory waypoints over 3 seconds prediction
-- 🧠 **Advanced Architecture**: Qwen2.5-VL-7B + SSR-MIDI fusion with TMI feature injection
+- 🧠 **Advanced Architecture**: Qwen2.5-VL-7B + Tri-MMI fusion with TMI feature injection
 - 📊 **Complete Pipeline**: End-to-end solution from raw sensor data to trajectory prediction
 
 
@@ -38,7 +38,7 @@ graph TB
     D --> G[SigLIP<br/>1152-dim]
     E --> H[SegFormer<br/>512-dim]
     
-    F --> I[SSR-MIDI Fusion<br/>Mamba Architecture]
+    F --> I[Tri-MMI Fusion<br/>Mamba Architecture]
     G --> I
     H --> I
     
@@ -78,10 +78,10 @@ OmniNWM-VLA/
 │   └── run_sharegpt_generation.sh      # One-click generation script
 │
 ├── 🤖 tri_modal_qwen/                  # Model Training Pipeline
-│   ├── SSR/                            # SSR-MIDI Implementation
+│   ├── SSR/                            # Tri-MMI Implementation
 │   │   ├── ssr/                        # Core SSR modules
 │   │   │   ├── models/                 
-│   │   │   │   └── midi.py            # MIDI tri-modal fusion model
+│   │   │   │   └── midi.py            # Tri-MMI tri-modal fusion model
 │   │   │   ├── train/
 │   │   │   │   └── train_reasoning.py  # Stage 1 training script
 │   │   │   └── data/
@@ -285,9 +285,9 @@ python scripts/build_sharegpt_dataset.py \
 
 Our training follows a multi-stage pipeline:
 
-### Stage 1: SSR-MIDI Training
+### Stage 1: Tri-MMI Training
 
-Train the SSR-MIDI fusion model for tri-modal feature learning:
+Train the Tri-MMI fusion model for tri-modal feature learning:
 
 ```bash
 cd tri_modal_qwen/SSR
@@ -296,12 +296,12 @@ cd tri_modal_qwen/SSR
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export USE_PRECOMPUTED_FEATURES=false  # Use real-time extraction
 
-# Run SSR-MIDI training
+# Run Tri-MMI training
 bash run_stage1.sh
 ```
 
 **Configuration highlights**:
-- Architecture: MIDI with Mamba-SSM backbone
+- Architecture: Tri-MMI with Mamba-SSM backbone
 - Input: RGB (CLIP-ViT-L), Depth (SigLIP), Semantic (SegFormer-B5)
 - Training: FSDP distributed training across 8 GPUs
 - Learning rate: 1e-4 with cosine scheduler
@@ -310,12 +310,12 @@ bash run_stage1.sh
 
 ### Stage 2: TMI Feature Extraction
 
-Extract tri-modal features using the trained SSR-MIDI model:
+Extract tri-modal features using the trained Tri-MMI model:
 
 ```bash
 cd tri_modal_qwen
 
-# Set MIDI mode (recommended)
+# Set Tri-MMI mode (recommended)
 export USE_MIDI_MODE=true
 
 # Run feature extraction
@@ -363,7 +363,7 @@ bash run_evaluation.sh
 - **RGB Encoder**: CLIP-ViT-Large (1024-dim features)
 - **Depth Encoder**: SigLIP (1152-dim features)
 - **Semantic Encoder**: SegFormer-B5 (512-dim features)
-- **Fusion**: SSR-MIDI with Mamba architecture (mamba-ssm 2.2.4)
+- **Fusion**: Tri-MMI with Mamba architecture (mamba-ssm 2.2.4)
 
 ### 2. TOR (Thinking-of-Route) Tokens
 
@@ -556,7 +556,7 @@ If you find this work useful, please cite:
 ## 🙏 Acknowledgments
 
 - **[Qwen Team](https://github.com/QwenLM)**: For Qwen2.5-VL base model
-- **[SSR Authors](https://github.com/)**: For MIDI architecture inspiration
+- **[SSR Authors](https://github.com/)**: For Tri-MMI architecture inspiration
 - **[nuScenes](https://www.nuscenes.org/)**: For the comprehensive dataset
 - **[LLaMA Factory](https://github.com/hiyouga/LLaMA-Factory)**: For training framework
 - **[Mamba](https://github.com/state-spaces/mamba)**: For efficient sequence modeling (v2.2.4)

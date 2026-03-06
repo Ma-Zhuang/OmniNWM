@@ -145,7 +145,7 @@ OmniNWM
 ### 4.  OmniNWM-VLA
 Check [OmniNWM-VLA](omninwm/models/OmniNWM-VLA) for more implementation details, including :
 
--  Integrated SSR-MIDI for tri-modal fusion 
+-  Integrated Tri-MMI for tri-modal fusion 
 -  ShareGPT format dataset generation pipeline 
 -  codebase setup with nuScenes support
 
