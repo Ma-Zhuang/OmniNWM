@@ -9,7 +9,7 @@
 [![Huggingface](https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Models-yellow?style=for-the-badge)](https://huggingface.co/Arlolo0/OmniNWM/tree/main)
 <!-- [![License](https://img.shields.io/badge/License-Apache%202.0-orange?style=for-the-badge)](LICENSE) -->
 
-[Bohan Li](https://arlo0o.github.io/libohan.github.io/), [Zhuang Ma](https://github.com/Ma-Zhuang), [Dalong Du](), [Baorui Peng](), [Zhujin Liang](), [Zhenqiang Liu](), [Chao Ma](https://scholar.google.com/citations?hl=zh-CN&user=syoPhv8AAAAJ), [Yueming Jin](https://scholar.google.com/citations?hl=zh-CN&user=s_kbB4oAAAAJ), [Hao Zhao](https://scholar.google.com/citations?hl=zh-CN&user=ygQznUQAAAAJ), [Wenjun Zeng](https://scholar.google.com/citations?user=_cUfvYQAAAAJ&hl=zh-CN), [Xin Jin](https://scholar.google.com/citations?hl=zh-CN&user=byaSC-kAAAAJ)
+<!-- [Bohan Li](https://arlo0o.github.io/libohan.github.io/), [Zhuang Ma](https://github.com/Ma-Zhuang), [Dalong Du](), [Baorui Peng](), [Zhujin Liang](), [Zhenqiang Liu](), [Chao Ma](https://scholar.google.com/citations?hl=zh-CN&user=syoPhv8AAAAJ), [Yueming Jin](https://scholar.google.com/citations?hl=zh-CN&user=s_kbB4oAAAAJ), [Hao Zhao](https://scholar.google.com/citations?hl=zh-CN&user=ygQznUQAAAAJ), [Wenjun Zeng](https://scholar.google.com/citations?user=_cUfvYQAAAAJ&hl=zh-CN), [Xin Jin](https://scholar.google.com/citations?hl=zh-CN&user=byaSC-kAAAAJ) -->
        
 
 
@@ -86,11 +86,14 @@ Download the official checkpoints and auxiliary models.
 pip install "huggingface_hub[cli]"
 huggingface-cli download Arlolo0/OmniNWM --local-dir ./pretrained
 ```
+Note that the huggingface-repo (https://huggingface.co/Arlolo0/OmniNWM/tree/main) includes OmniNWM [checkpoints](https://huggingface.co/Arlolo0/OmniNWM/tree/main/ckpt) and dataset [pickles](https://huggingface.co/Arlolo0/OmniNWM/tree/main/pickle).
+
 
 **Open-Sora-v2 Weights:**
 ```bash
 huggingface-cli download hpcai-tech/Open-Sora-v2 --local-dir ./pretrained
 ```
+Check more details on the huggingface-repo (https://huggingface.co/hpcai-tech/Open-Sora-v2/tree/main).
 
 ### 3. Data Preparation
 
