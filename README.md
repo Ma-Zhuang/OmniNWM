@@ -1,6 +1,6 @@
 <div align="center">
 
-# OmniNWM
+# OmniNWM (ECCV 2026)
 
 **Omniscient Driving Navigation World Models**
 
